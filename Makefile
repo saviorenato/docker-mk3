@@ -1,5 +1,10 @@
 # Recipes
-#all: mariadb
+all: init
+
+init:
+	make mariadb
+network:
+	@docker network create -d bridge global-default
 
 #Databases
 mariadb:
@@ -22,5 +27,4 @@ redis:
 kafka:
 	@docker-compose -f kafka/docker-compose-kafka.yaml up -d
 
-
-#.PHONY: all mariadb 
+.PHONY: all 

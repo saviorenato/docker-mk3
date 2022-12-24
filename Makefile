@@ -9,16 +9,10 @@ network:
 #Databases
 mariadb:
 	@docker-compose -f databases/docker-compose-mariadb.yaml up -d
-mariadb-login:
-	@docker exec -it mariadb bash
 postgres:
 	@docker-compose -f databases/docker-compose-postgres.yaml up -d
-postgres-login:
-	@docker exec -it postgres bash
 mongo:
 	@docker-compose -f databases/docker-compose-mongo.yaml up -d
-mongo-login:
-	@docker exec -it mongodb bash
 
 #Redis
 redis:

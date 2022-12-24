@@ -1,0 +1,28 @@
+version: '3.1'
+services:
+
+    mariadb:
+        container_name: mariadb
+        image: mariadb:latest
+        volumes:
+            - ./var/mariadb:/var/lib/mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=pwd
+            - MYSQL_DATABASE=shreemad
+        ports:
+            - '3306:3306'
+        networks:
+            - global-default
+
+    adminer:
+        image: adminer
+        links:
+            - mariadb
+        ports:
+            - 8005:8080
+        networks:
+            - global-default
+
+networks:
+  global-default:
+    external: true

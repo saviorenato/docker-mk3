@@ -44,4 +44,7 @@ mock:
 aws-sqs:
 	@./.make/docker-compose-cmd.sh -f aws/docker-compose-sqs.yaml up
 
+sonarqube:
+	@./.make/docker-compose-cmd.sh -f qa/docker-compose-sonarqube.yaml up -d
+
 .PHONY: all 

@@ -3,8 +3,6 @@ services:
   uptime-kuma:
     container_name: uptime-kuma
     image: louislam/uptime-kuma:1
-    networks:
-      - global-default
     ports:
       - 3001:3001
     volumes:
@@ -12,10 +10,3 @@ services:
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
-    environment:
-      TZ: "America/Sao_Paulo"
-
-networks:
-  global-default:
-    external: true
-

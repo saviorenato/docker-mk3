@@ -13,8 +13,6 @@ services:
             - MYSQL_PASSWORD=rock4me
         ports:
             - '3306:3306'
-        networks:
-            - global-default
 
     adminer:
         image: adminer
@@ -22,9 +20,3 @@ services:
             - mariadb
         ports:
             - 8005:8080
-        networks:
-            - global-default
-
-networks:
-  global-default:
-    external: true

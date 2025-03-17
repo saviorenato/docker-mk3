@@ -1,0 +1,18 @@
+version: '3.1'
+services:
+
+  rabbitmq:
+        image: rabbitmq:3-management
+        container_name: 'rabbitmq'
+        ports:
+            - 5672:5672
+            - 15672:15672
+        volumes:
+            - rabbitmq_data:/var/lib/rabbitmq/
+            - rabbitmq_data:/var/log/rabbitmq
+        networks:
+            - sail
+        restart: unless-stopped
+
+volumes:
+  rabbitmq_data:
